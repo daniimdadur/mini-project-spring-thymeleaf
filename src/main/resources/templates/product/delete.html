@@ -1,0 +1,42 @@
+<head>
+    <title>
+        delete-product
+    </title>
+</head>
+<form xmlns:th="http://www.thymeleaf.org" th:action="@{~/product/remove}" method="post">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"></h5>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="id" class="form-label">Id</label>
+                <input id="id" name="id" class="form-control" th:value="${product.id}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="categoryName" class="form-label">Category Name</label>
+                <input id="categoryName" name="categoryName" class="form-control" th:value="${product.categoryName}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" name="name" class="form-control" th:value="${product.name}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input id="description" name="description" class="form-control" th:value="${product.description}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input id="price" name="price" class="form-control" th:value="${product.price}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input id="quantity" name="quantity" class="form-control" th:value="${product.quantity}" readonly>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a th:href="@{~/product}" class="btn btn-secondary" style="margin-left: 1px">Close</a>
+            </div>
+        </div>
+    </div>
+</form>

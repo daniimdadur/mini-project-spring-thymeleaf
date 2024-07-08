@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<div class="row" layout:fragment="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h3 class="me-auto p-3">Supplier Index</h3>
+                    <button type="button" class="btn btn-primary" id="btn-add" th:href="@{~/supplier/add}">
+                        Add Supplier
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th>Contact Title</th>
+                        <th>Addreas</th>
+                        <th>City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${data}">
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.companyName}"></td>
+                        <td th:text="${item.contactName}"></td>
+                        <td th:text="${item.contactTitle}"></td>
+                        <td th:text="${item.address}"></td>
+                        <td th:text="${item.city}"></td>
+
+                        <td>
+                            <a th:href="@{~/supplier/{id}(id = ${item.id})}" class="btn btn-success float-end btn-view" style="margin-left: 5px">
+                                <i>Detail</i>
+                            </a>
+                            <a th:href="@{~/supplier/delete/{id}(id = ${item.id})}" class="btn btn-danger float-end btn-delete" style="margin-left: 5px">
+                                <i>Delete</i>
+                            </a>
+                            <a th:href="@{~/supplier/edit/{id}(id = ${item.id})}" class="btn btn-warning float-end btn-edit">
+                                <i class="text-white">Edit</i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="script">
+
+    <script>
+
+        $(document).ready(function (){
+            $('#btn-add').click(function (add){
+                add.preventDefault();
+
+                getShowModal($(this));
+            });
+            $('.btn-edit').click(function (edit){
+                edit.preventDefault();
+
+                getShowModal($(this));
+            });
+            $('.btn-delete').click(function (remove){
+                remove.preventDefault();
+
+                getShowModal($(this));
+            });
+            $('.btn-view').click(function (view){
+                view.preventDefault();
+
+                getShowModal($(this));
+            });
+
+            function getShowModal(modal){
+                var url = $(modal).attr('href');
+
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    dataType: 'HTML',
+                    success: function (result){
+                        $('.modal-content').html(result);
+                        $('#modal-sample').modal('show');
+                    }
+                });
+            }
+        });
+
+    </script>
+
+</th:block>
+</body>
+</html>

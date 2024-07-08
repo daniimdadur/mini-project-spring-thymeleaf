@@ -1,0 +1,26 @@
+<head>
+    <title>add</title>
+</head>
+<form xmlns:th="http://www.thymeleaf.org" th:action="@{~/category/save}" method="post">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Add Category</h5>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" type="text" name="name" class="form-control" th:value="${category.name}" aria-describedby="nameHelp" placeholder="enter your name">
+                <div id="nameHelp" class="form-text">no description</div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input id="description" type="text" name="description" class="form-control" th:value="${category.description}" aria-describedby="descriptionHelp" placeholder="enter your description">
+                <div id="descriptionHelp" class="form-text">no description</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin-right: 2px">Close</button>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </div>
+</form>

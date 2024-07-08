@@ -1,0 +1,47 @@
+<head>
+    <title>
+        edit-product
+    </title>
+</head>
+<form xmlns:th="http://www.thymeleaf.org" th:action="@{~/product/update}" method="post">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Edit Product</h5>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" name="id" th:value="${product.id}">
+            <!--                    <div class="mb-3">-->
+            <!--                        <label for="id" class="form-label">Id</label>-->
+            <!--                        <input id="id" type="text" name="id" class="form-control" th:value="${product.id}" placeholder="masukan id">-->
+            <!--                    </div>-->
+            <div class="mb-3">
+                <label for="categoryName" class="form-label">Category Name</label>
+                <select id="categoryName" name="categoryName" class="form-select" th:value="${product.categoryName}">
+                    <option>Pilih Category Name</option>
+                    <option th:each="item : ${category}" th:value="${item.name}" th:text="${item.name}"
+                            th:selected="${item.name == product.categoryName}"></option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" type="text" name="name" class="form-control" th:value="${product.name}" placeholder="masukan name">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input id="description" type="text" name="description" class="form-control" th:value="${product.description}" placeholder="masukan description">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input id="price" type="text" name="price" class="form-control" th:value="${product.price}" placeholder="masukan price">
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input id="quantity" type="text" name="quantity" class="form-control" th:value="${product.quantity}" placeholder="masukan quantity">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" style="margin-right: 1px ">Save Changes</button>
+                <a th:href="@{~/product}" class="btn btn-secondary">Close</a>
+            </div>
+        </div>
+    </div>
+</form>

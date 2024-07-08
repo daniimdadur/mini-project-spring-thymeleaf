@@ -1,0 +1,58 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>category</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="row" layout:fragment="content">-->
+<!--    <div class="col-md-12">-->
+<!--        <div class="card">-->
+<!--            <div class="card-header">-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                    <h3 class="me-auto p-3">Category Index</h3>-->
+<!--                    <button type="button" class="btn btn-primary" id="exampleAdd" th:href="@{~/category/_add}">-->
+<!--                        Add Category-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--                <table class="table table-striped">-->
+<!--                    <thead>-->
+<!--                    <tr>-->
+<!--                        <th>Id</th>-->
+<!--                        <th>Name</th>-->
+<!--                        <th>Description</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    <tr th:each="item : ${data}">-->
+<!--                        <td th:text="${item.id}"></td>-->
+<!--                        <td th:text="${item.name}"></td>-->
+<!--                        <td th:text="${item.description}"></td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<th:block layout:fragment="script">-->
+
+<!--    <script>-->
+
+<!--        $(document).ready(function (){-->
+<!--            $('#exampleAdd').click(function (){-->
+<!--                var url = $(this).attr('href');-->
+<!--                $.ajax({-->
+<!--                    url : url,-->
+<!--                    type : 'GET',-->
+<!--                    dataType : 'html',-->
+<!--                    success : function ()-->
+<!--                })-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</th:block>-->
+<!--</body>-->
+<!--</html>-->

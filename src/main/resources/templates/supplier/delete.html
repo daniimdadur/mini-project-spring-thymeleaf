@@ -1,0 +1,42 @@
+<head>
+    <title>
+        delete-supplier
+    </title>
+</head>
+<form xmlns:th="http://www.thymeleaf.org" th:action="@{~/supplier/remove}" method="post">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Delete Supplier</h5>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="id" class="form-label">Id</label>
+                <input id="id" name="id" class="form-control" th:value="${supplier.id}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="companyName" class="form-label">Company Name</label>
+                <input id="companyName" name="companyName" class="form-control" th:value="${supplier.companyName}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="contactName" class="form-label">Contact Name</label>
+                <input id="contactName" name="contactName" class="form-control" th:value="${supplier.contactName}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="contactTitle" class="form-label">Contact Title</label>
+                <input id="contactTitle" name="contactTitle" class="form-control" th:value="${supplier.contactTitle}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input id="address" name="address" class="form-control" th:value="${supplier.address}" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input id="city" name="city" class="form-control" th:value="${supplier.city}" readonly>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" style="margin-right: 1px">Delete</button>
+                <a th:href="@{~/supplier}" class="btn btn-secondary">Close</a>
+            </div>
+        </div>
+    </div>
+</form>
